@@ -1,0 +1,63 @@
+How interesting your life appears!
+
+*stat_chart
+  text name Name
+
+  opposed_pair Weakness
+   Strength
+
+  opposed_pair Stupidity
+    Intelligence
+
+  opposed_pair Ugliness
+   Beauty
+
+  opposed_pair Prestige
+   Unimportance
+
+*temp inventory ""
+*temp comma false
+*if (empty_inventory)
+   *set comma true
+   *set inventory &"You are carrying nothing"
+*if (sword)
+   *set comma true
+   *set inventory &"$!{sword_name} (Durabillity: ${sword_dura})"
+*if (book)
+   *set comma true
+   *set inventory &"$!{book_name} (Durabillity: ${book_dura})"
+*if (Amulet)
+   *set comma true
+   *set inventory &"$!{amulet_name} (Durabillity: ${amulet_dura})"
+*if (potion)
+   *set comma true
+   *set inventory &"$!{potion_name} (Durabillity: ${potion_dura})"
+*if (summonstone)
+   *set comma true
+   *set inventory &"$!{summonstone_name} (Durabillity: ${summonstone_dura})"
+*if (cape)
+   *if comma
+      *set inventory &", "
+   *set comma true
+   *set inventory &"A $!{color} $!{material} Cape"
+*if (health_potion)
+   *if comma
+      *set inventory &", "
+   *set comma true
+   *set inventory &"Health Potion(s) (x${hp_number})"
+Inventory: ${inventory}
+*line_break
+Gold: ${money} pieces
+*temp fear ""
+*temp comma false
+*if (empty_fear)
+   *set comma true
+   *set fear &"You fear nothing"
+*if (blood)
+  *set comma true
+  *set fear &"$!{blood_name} (Effect: ${fear_effect})"
+*if (spider)
+   *set comma true
+   *set fear &"$!{spider_name} (Effect: ${fear_effect})"
+*line_break
+Fear: ${fear}

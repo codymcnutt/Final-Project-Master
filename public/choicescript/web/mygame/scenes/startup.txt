@@ -1,0 +1,377 @@
+  
+*title Lives of Wizards 
+*author Cody McNutt
+*scene_list
+  startup
+  animal
+  variables
+  gosub
+  ending
+  death
+
+*create name ""
+*create Inventory false 
+*create gender 1
+*create Weakness 50
+*create Stupidity 50
+*create Ugliness 50
+*create Prestige 50 
+*create money 2000
+*create empty_inventory true
+*create sword false
+*create sword_name "Sword of Injustice"
+*create sword_dura 78
+*create cape false
+*create color ""
+*create material ""
+*create health_potion false
+*create hp_number 0
+*create gender1 ""
+*create gender2 ""
+*create gender3 ""
+*create gender4 ""
+*create book false
+*create book_name "Ancient book"
+*create book_dura 62
+*create amulet false
+*create amulet_name "Amulet of Minor Protection"
+*create amulet_dura 12
+*create potion false
+*create potion_name "Draught of Living Dead"
+*create potion_dura 2
+*create summonstone false
+*create summonstone_name "Mystic Summoning Stone"
+*create summonstone_dura 3
+*create fear false
+*create empty_fear true
+*create spider false
+*create fear_effect ""
+*create spider_name "Arachnid Phobia"
+*create blood false
+*create blood_name "Bloodthirsty"
+
+Welcome to Lives of Wizards!
+*page_break
+Let us begin Master Wizard. 
+In this book we will explore the lives of Wizards and their secrets. More to the point we will explore your journey as you became a great and powerful wizard. Now doesn’t that sound fun? Let’s begin. 
+
+
+*page_break
+
+In your study as you finish a spell you have been working on you realize that you forgot an important component of the spell. How do you finish casting the spell? 
+
+*fake_choice
+  #I add some lizards breath to the potion.
+    Lizards breath is an excellent choice my liege as it will give unpleasant dreams to all who taste it. How sneaky of you. Surely you are a master of potions and poisons. 
+    *set potion true
+    *set empty_inventory false
+  #I recite the secret incantations
+    Did your mother pass down an ancient book of incantations and spells, guard it well. You have a way with words and easily remember written spells.
+    *set book true
+    *set empty_inventory false   
+  #Using a mysterious talisman I activate the spell
+    Such powerful artifacts are rare, but to you a master of amulets and talismans this little gem is but a trifle.
+    *set amulet true
+    *set empty_inventory false
+  #My summoned sprites and spirits help me finish the spell
+    A conjurer of cheap tricks? Perhaps not in your case, you don’t trifle with minor spirits, but are a master of horrors and daemons most wizards never know exist. 
+    *set summonstone true
+    *set empty_inventory false
+  #One of my apprentices finishes the spell for me
+    Oh, what a good idea, having others do your work for you. You must be well practiced in the subtleties of mental manipulation, playing tricks on the mind is a small matter for you. Illusions are  your     
+    game.  
+        
+*comment endif
+
+Excellent, now that the spell has been prepared and is ready to use. Um, what exactly does it do?
+*fake_choice 
+  *if (potion=true)
+    #It’s a fine poison for my enemies
+     Good thinking! Clever planning like this will be useful, when you have dangerous enemies. 
+     *line_break
+     You gained a poison potion
+     *image poison.png
+  *if (book=true)
+    #It’s a scroll filled with power to make someone sleep
+     Oh how sneaky of you, sweet dreams will fill some enemies dreams while you make moves against them.
+     *line_break
+     *image book.png
+     You gained a spellbook 
+  *if (amulet=true)
+    #An amulet to ward off minor spells
+     That’s thinking ahead, you never know when some wizard is going to try to hurt you with a minor spell. Those are the most dangerous kind.
+     *line_break
+     You gained an amulet
+     *image Amulet.png
+  *if (summonstone=true)
+    #A shiny orb to communicate with spirits on the astral plane
+     Be careful, those spirits scare me, but it will come in handy being able to communicate with them. 
+     *line_break
+     You gained a summoning stone
+     *image stone.png
+  #I don’t know ask my apprentice what it does?
+    While it’s great to have help, being unaware of your apprentice is dangerous. 
+    *line_break
+    Stupidity Increase 5% Intelligence degrease 5%
+    *set Stupidity %+10
+    *comment Letting apprentice do everything leads to stupidity. 
+
+*comment endif
+
+Surely such a powerful spell will come in handy at a later time. You are wise to think ahead Master. 
+
+*page_break
+
+You know, it's going to get annoying to keep calling you "Great and Powerful " What is your name? 
+*input_text name
+*if (name="Gandalf")
+ Welcome back Gandalf!  
+ *set stupidity %-20
+ *set prestige %+30
+ *set ugliness %+20
+ *set weakness %+20
+*comment endif
+*if (name="gandalf")
+ Welcome back Gandalf!  
+ *set stupidity %-20
+ *set prestige %+30
+ *set ugliness %+20
+ *set weakness %+20
+*comment endif
+*if (name="Harry Potter")
+ Welcome back Harry!  
+ *set stupidity %+20
+ *set prestige %+30
+ *set ugliness %-10
+ *set weakness %-20
+*comment endif
+*if (name="Merlin")
+ Merlin's beard, it's you!  
+ *image merlin.png
+ *set stupidity %-40
+ *set prestige %+40
+ *set ugliness %+20
+ *set weakness %-40
+*comment endif
+
+Excellent ${name} is a very fine name indeed. Would you be male or female?
+
+*fake_choice
+  # Male 
+    *set gender 1
+    *if gender = 1
+      *set gender1 "he"
+      *set gender2 "Sir"
+      *set gender3 "Master"
+      *set gender4 "King"
+    *goto gender_selected
+
+  # Female
+    Being female you are naturally more beautiful 
+    *line_break 
+    Ugliness decreases 5% and Beauty increases 5%
+    *set ugliness %-10
+    *set gender 0
+    *if gender = 0
+     *set gender1 "she"
+     *set gender2 "My Lady"
+     *set gender3 "Madam"
+     *set gender4 "Queen"
+    *goto gender_selected
+
+*comment endif
+
+*label gender_selected
+${gender3} ${name} let’s move on. 
+*comment endif
+
+This would be a good time to discuss your background and strengths. 
+
+All Wizards can be described in terms of a handful of characteristics, each in opposed pairs: Weakness and Strength, Stupidity and Intelligence, Ugliness and Beauty, Prestige and Unimportance.  
+
+Are you more notable for your Weakness or your Ugliness? 
+*fake_choice 
+  #Weakness: low physical damage
+   Well ${name} no one ever said you were tough or strong, but you don't suffer from being horribly ugly. 
+   *line_break
+   Weakness increases 15%
+   *set weakness %+30
+  #Ugliness: Damaging to the eyes 
+   Mirrors shudder when you walk in a room, a lot of people have tried to kill you for being so ugly. 
+   *line_break
+   Ugnilness increases 15%
+   *set ugliness %+30
+*comment endif 
+
+Do you have more stupidity or unimportance? 
+*fake_choice
+ #Stupidity: Learning hard is  
+  Ok it might be hard for you to be a wizard ${name} because you can't read
+  *line_break
+  Stupidity increases 15%
+  *set stupidity %+30
+ #Unimportance: Nobody cares about you
+  You are completely unoticed in the world. If you die nobody even knows it, but at least nobody ever called ${name} stupid.
+  *set prestige %-30
+  *line_break
+  Unimportance increases 15%
+*comment endif
+
+As a child did you have an appetite for learning or did you spent most of your time outside fighting and rough housing with the other children. 
+*fake_choice
+ #I was always eager to learn
+   You always had a book with you and spent your younger days learning 
+   *set stupidity %-20
+   Stupidity decreases 10%
+ #Usually I was outside fighting and playing with the other kids. 
+   You preffered play fighting to learning, which made you stronger 
+   *set weakness %-20
+   *line_break 
+   Weakness decreases 10%
+*comment endif
+
+Your childhood was at times difficult. And you encountered many new and amazing experiences.  
+
+Except for a night you will never forget. You were on your way home and something truly traumatic and frightening happened to you.
+If you don’t mind me asking what was it that happened that night?
+*fake_choice
+  
+  *if (ugliness < 51)
+    #I was walking home and four thugs stepped out of a warehouse and beat me to within an inch of my life. As I lay there sure I would die a city guard came around the corner, running towards my limp body he chased off the thugs and carried me to safety. 
+      Ever since that night you have had trouble with your right leg. The scars mark your body. And the momories mark your mind. You struggle interacting with people because of that night. 
+      *line_break
+      Ugliness increases 15%
+      Prestige decreases 5%
+      *set ugliness %+30
+      *image thug.png
+      *set prestige %-10
+
+  #After a night of exploring some abandoned warehouses by the docks I stumbled into a room that appeared to be a torture chamber, it was filled with dead bodies and decapitated heads. 
+    The screams of tortured bodies still haunt your dreams. You can't stand the sight of blood. 
+    *line_break
+    You gained fear: Bloodthirsty -20% to tests with blood.
+    *set blood true
+    *image bloody.png
+    *set empty_fear false
+    *set fear_effect "-20% to tests with blood" 
+
+
+  #As I headed down an alley I noticed sitting atop one of the buildings a giant brown spider. It was watching me. Sitting silently, I froze as the spider started running towards me. I escaped but just barely.   
+    You are now afraid of most bugs, but if you see a spider terror strikes you and paralyzes you. 
+    *line_break  
+    *image spider.png
+    You gained fear: Arachnid Phobia -20% to tests with spiders. 
+    *set spider true
+    *set empty_fear false
+    *set fear_effect "-20% to tests with spiders" 
+
+  *if (name="Merlin")
+    #I'm Merlin I have no fear
+
+  
+
+
+
+
+
+
+
+
+
+*label shop
+*temp buy_price_s 400
+*temp sales_price_s 0
+*temp sales_price_s2 0
+*temp sales_price_hp 0
+*temp buy_price_hp 100
+*temp buy_hp 0
+Hello and welcome to General Durald's shop! 
+*label top
+*set sales_price_s round((buy_price_s /2) +sword_dura)
+What can I help you with today?
+*line_break
+Money: $${money}
+*choice
+   *hide_reuse #Good morning sir, that's a very nice smile you got there!
+      *set buy_price_s -200
+      *set buy_price_hp -50
+      Listen you, I'll give you a discount if you promise to never say something so creepy ever again.
+      *page_break
+      *goto top
+   *if (sword = false)
+      *selectable_if (money >= buy_price_s) #I'd like to buy the new sword! [i]($${buy_price_s})[/i]
+         *set empty_inventory false
+         *set sword true
+         *set money -buy_price_s
+         *if (money < 0)
+            *set money 0
+         Thank you kindly, here's your new sword!
+         *page_break
+         *goto top
+   *if (sword)
+      #I'd like to sell my $!{sword_name}. [i]($${sales_price_s})[/i]
+         *set sword false
+         *if not ((cape) or (health_potion))
+            *set empty_inventory true
+         *set money +sales_price_s
+         Thank you kindly, I'll be taking your $!{sword_name} then.
+         *page_break
+         *goto top
+   *if (sword)
+      #(Bang the Chainsaw-Sword on the counter)
+         *set sword_dura %-10
+         Hey what are you doing, you bozo?! Stop that!
+         *page_break
+         *goto top
+   #I'd like to buy some Health Potions. [i]($${buy_price_hp} x1)[/i]
+      How many would you like?
+      *input_number buy_hp 0 99
+      *set sales_price_hp (100 * buy_hp)
+      So you would like to buy ${buy_hp} Health Potions? That'll be $${sales_price_hp} then.
+      *choice
+         *selectable_if (money >= sales_price_hp) #Yep. Here you go.
+            *set money -sales_price_hp
+            *if (money < 0)
+               *set money 0
+            *set empty_inventory false
+            *set health_potion true
+            *set hp_number buy_hp
+            A pleasure doing business with you!
+            *page_break
+            *goto top
+#I can't afford that.
+            That's too bad, see anything else you like?
+            *page_break
+            *goto top
+   *hide_reuse *if (cape = false) #Are those Bat-Boy capes?
+      Yep, promotional item. We're giving them out free for the kids. Why, you want one? What color would you like?
+      *fake_choice
+#Black
+            *label always_black
+            *set color "black"
+#Black...
+            *set color "black"
+#Black!
+            *goto always_black
+#Pink!
+            *set color "pink"
+      *set material "polyester"
+      *set cape true
+      *set empty_inventory false
+      Here ya go... 
+      *page_break
+      *goto top
+   *if (hp_number > 0) #(Drink a Health Potion)
+      *set hp_number -1
+      *if (hp_number = 0)
+         *set health_potion false
+      You chug down a cool refreshing health potion.
+      *page_break
+      *goto top
+   #I'm done shopping.
+      Okay, you come back again ya hear now? Have a nice day!
+      *page_break
+      *goto end
+
+*label end
+You walked out and immmidiately got arrested.

@@ -1,0 +1,72 @@
+<html ng-app="characterApp">
+<body ng-controller="characterController" style="margin:0px">
+<h1 style="font-family: fantasy;
+    position: fixed;
+    left: 56%;
+    font-size: 2em;
+    top: 33%;
+}">Save your Adventure </h1>
+<div>
+	<img style="position:absolute; width:100%; height:auto; z-index:-1;" src="parallax-project/images/page.jpg">
+	<div style="position:fixed;
+display: -moz-box;
+left: 57%;
+top: 42%;
+width: 20%;
+"><form ng-submit="createCharacter()">
+		<input 
+			style="border-radius: 10px;
+					text-align: center;
+					padding: 5px;
+					width:120%;
+					background-color:#E0B783;
+					height:40px;
+					margin: 5px;
+					font-family:fantasy;
+					font-size:20px;
+					border-color:black;"
+	  		ng-model="newCharacter.name" placeholder="Name"></input>
+
+		<input 
+			style="border-radius: 10px;
+					text-align: center;
+					padding: 5px;
+					width:120%;
+					background-color:#E0B783;
+					height:40px;
+					margin: 5px;
+					font-family:fantasy;
+					font-size:20px;
+					border-color:black;"
+		ng-model="newCharacter.email" placeholder="e-mail"></input>
+		<input 
+		style="border-radius: 10px;
+					text-align: center;
+					padding: 5px;
+					width:120%;
+					background-color:#E0B783;
+					height:40px;
+					margin: 5px;
+					font-family:fantasy;
+					font-size:20px;
+					border-color:black;"
+		ng-model="newCharacter.character" placeholder="Character"></input>
+		<button  style="border-radius: 10px;
+text-align: center;
+padding: 5px;
+width: 40%;
+background-color: #E0B995;
+height: 95px;
+margin: 5px;
+font-family: fantasy;
+font-size: 20px;
+border-color: #000;
+position: absolute;
+top: 15%;
+left: -47%;"> 
+
+					Submit </button></form>
+	</div>
+</div>
+</body>
+</html>
