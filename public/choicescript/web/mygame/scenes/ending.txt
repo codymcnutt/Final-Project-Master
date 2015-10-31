@@ -1,4 +1,4 @@
-*comment Copyright 2010 by Dan Fabulich.
+o*comment Copyright 2010 by Dan Fabulich.
 *comment 
 *comment Dan Fabulich licenses this file to you under the
 *comment ChoiceScript License, Version 1.0 (the "License"); you may

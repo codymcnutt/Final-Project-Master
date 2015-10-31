@@ -2367,6 +2367,12 @@ if (window.isChromeApp) {
     restartButton.addEventListener("click", function() {
       restartGame("prompt");
     }, false);
+     var saveButton = document.getElementById("saveButton");
+    saveButton.onclick = undefined;
+    saveButton.addEventListener("click", function() {
+      restartGame("prompt");
+    }, false);
+
 
     var subscribeAnchor = document.getElementById("subscribeLink");
     subscribeAnchor.onclick = undefined;

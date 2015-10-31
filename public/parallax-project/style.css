@@ -23,7 +23,7 @@ label {
   cursor: pointer;
 }
 
-button {
+input {
   border: 10px solid #00FFAA;
   font-family: monospace;
   position: absolute;
@@ -42,7 +42,7 @@ button {
   left: 10%;
 }
 
-button:hover {
+input:hover {
   background: #00FFAA;
 }
 

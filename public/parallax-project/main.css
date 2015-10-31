@@ -1,9 +1,9 @@
 .becomeMenu {
     position: absolute;
-    top: 35%;
-    left: 42%;
-    height: 30%;
-    width: 24%;
+    top: 10%;
+    left: 35%;
+    height: 45%;
+    width: 35%;
     background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1)); /* For Safari 5.1 to 6.0 */
     background: linear-gradient(to right, rgba(12,17,39,0), rgba(12, 17,39,1));
     opacity: 0.68;

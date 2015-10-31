@@ -17,7 +17,7 @@ var controller = require('./controllers/controller')
 app.get('/', function(req, res){
   res.sendFile("/parallax-project/final.html", {root : './public'})
 });
-app.get('/', function(req, res){
+app.get('/home', function(req, res){
   res.sendFile("/html/home.html", {root : './public'})
 });
 

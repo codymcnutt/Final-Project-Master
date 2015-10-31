@@ -1,9 +1,9 @@
 body {
   max-width: 680px;
   _width:expression(this.scrollWidth > 680 ? "680px" : "auto");
-  font-size: 100%;  /* reset for CWS */
+  font-size: 110%;  /* reset for CWS */
   font: -apple-system-body; /* we'll override the font, but keep the size from iOS dynamic text sizing */
-  font-family: fantasy,Georgia,"Times New Roman",serif;
+  font-family: fantasy, Georgia,"Times New Roman",serif;
   background-color: #F7F4F1;
   color: rgba(0, 0, 0, 0.85);
   margin: 8px auto; 
@@ -57,7 +57,7 @@ table {
   white-space: nowrap; /* remain on single line so we can resize font based on width */
 }
 .statValue {
-  background-color: #ff5955;
+  background-color: black;
   position: absolute;
   top: 0;
   left: 0;
@@ -69,7 +69,7 @@ table {
 .choice label{
     padding: 11px 8px 12px;
     display:block;
-    border-color:#967A54;
+    border-color:black;
     border-style:solid;
     border-width: 1px 1px 0px 1px
 }
@@ -133,7 +133,7 @@ input[type=email],input[type=password] {
     margin-bottom: 1em; /* reset button margin */
     -webkit-appearance: none; /* Safari, don't override my CSS styles */
     color: #f7f4f1; /* Match background color */ 
-    background-color: #967A54;
+    background-color: black;
     border: none;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
@@ -273,4 +273,3 @@ h2 {
     max-width: 45%;
   }
   
-}

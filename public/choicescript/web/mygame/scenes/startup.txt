@@ -49,6 +49,10 @@
 *create spider_name "Arachnid Phobia"
 *create blood false
 *create blood_name "Bloodthirsty"
+*create familyWealth 0
+
+
+
 
 Welcome to Lives of Wizards!
 *page_break
@@ -124,18 +128,12 @@ Surely such a powerful spell will come in handy at a later time. You are wise to
 
 You know, it's going to get annoying to keep calling you "Great and Powerful " What is your name? 
 *input_text name
-*if (name="Gandalf")
- Welcome back Gandalf!  
+*if (name="Gandalf") or (name="gandalf")
+ Have you found the ring yet?  
  *set stupidity %-20
  *set prestige %+30
  *set ugliness %+20
- *set weakness %+20
-*comment endif
-*if (name="gandalf")
- Welcome back Gandalf!  
- *set stupidity %-20
- *set prestige %+30
- *set ugliness %+20
+ *image gandalf.png
  *set weakness %+20
 *comment endif
 *if (name="Harry Potter")
@@ -144,8 +142,9 @@ You know, it's going to get annoying to keep calling you "Great and Powerful " W
  *set prestige %+30
  *set ugliness %-10
  *set weakness %-20
+ *image harrypotter.png
 *comment endif
-*if (name="Merlin")
+*if (name="Merlin") or (name="merlin")
  Merlin's beard, it's you!  
  *image merlin.png
  *set stupidity %-40
@@ -267,8 +266,118 @@ If you don’t mind me asking what was it that happened that night?
 
   *if (name="Merlin")
     #I'm Merlin I have no fear
+*comment endif 
+*page_break
+And where you lived was your family wealthy or poor? 
+*fake_choice
+  #I always had the best clothes, books, food, etc. My father was a merchant and we had a great deal of money. 
+   Your family had wealth and power. Growing up you lived like royalty and had the finest of everything. 
+   *set familyWealth 2
+   *set prestige %+20
+  #My parents owned a candle shop. We lived ok, but we were not rich. I never went hungry. Sometimes I got new clothes if my siblings grew out of them. 
+   Your family isn't rich but you aren't poor either. You lived like most peasants. 
+   *set familyWealth 1
+   
+  #There was a time my parents were wealthy but we lost everything when my dad died in an accident at the mines. My mother tried the best she could but we grew up hungry and cold. 
+   You know about the haves and the have naughts. Growing up you were usually poor. 
+  #My parents both died when I was a child. I grew up on the streets and learned to take care of myself. 
+   Growing up poor on the streets made you tougher than most people. But you also went unoticed most of the time. 
+   *set weakness %-10
+   *set stupidity %-10
+   *set prestige %-10
+*comment endif
+*line_break
+Knock, Knock, Knock one of your apprentices opens the door and steps into the room.
 
-  
+${gender2} ${name}, our keep is under attack. We've spotted enemy forces heading towards us. 
+
+The young lad is obviously frightened and out of breath. Calmly you consider your options. 
+*label attackHome
+*fake_choice 
+ *if (stupidity < 42)
+  *hide_reuse #Calmly ask the apprentice for more information about the threat
+   Your apprentice seems pretty shaken up. After a moment you get him to calm down and he tells you that a pack of hellhounds has been seen heading for your home. 
+   *image hellhound.png 
+   What do you want to do? 
+   *goto attackHome
+
+
+ #Old enemies must be stirring prepare our defenses
+ #I want to attack 
+   *if (blood=true)
+      Bloodthirsty -20% this test 
+      *set weakness %+20
+     *if (weakness<41)
+      A gruesome pack of Hellhounds attacks your home shortly after midnight. Within minutes most of your guards lie dead around you. 
+      *line_break
+      You manage to defend yourself but at great cost. Your home and any spells you were working on are completely destroyed. 
+      *line_break
+      *if (book=true) 
+       *set book_dura 45
+       Ancient Book was reduced to 45 uses
+      *if (amulet=true) 
+       *set amulet_dura 8
+       Amulet of Minor Protection loses 4 charges 
+      *if (summonstone=true) 
+       *set summonstone_dura 2
+       Summonstone loses 1 charge 
+      *line_break
+      *goto statfix
+    *if (weakness>51)
+      A pack of Hellhounds arrive at your home shortly thereafter. They rip through your defenses and quickly slay your apprentice.
+      *line_break
+      You attempt to use your magic but the beasts overwhelm you. In seconds your eyes are torn out and the wold goes dark. All you can feel is burning. 
+      *goto ending 
+ #Prepare to flee for safety
+ #Do nothing, I don't have to worry about threats
+   Why don't you have to worry?
+*fake_choice
+ #My home is well defended by guards
+   *if (prestige > 58)
+    Right you are. When the Hellhounds threw themselves at your defenses they were obliterated. 
+   *if (prestige > 54)
+    Although it was close, your defenses held against the asault of the Hellhound pack. A lot of guards died and your defenses have been significantly weakened. 
+   *if (prestige < 55)
+       While your home was well defended, when the Hellhounds attacked it was a disaster. Panic and fear struck your guards as they watched the rotting flesh move from the forests to attack. 
+       *line_break
+       Your home is completely destroyed
+       *line_break
+       *if (book=true) 
+        *set book_dura 45
+        Ancient Book was reduced to 45 uses
+       *if (amulet=true) 
+        *set amulet_dura 8
+        Amulet of Minor Protection loses 4 charges 
+       *if (summonstone=true) 
+        *set summonstone_dura 2
+        Summonstone loses 1 charge 
+       *line_break
+ #I have magical traps set all over this place 
+     *if (stupidity<42)
+      Hellhounds soon attack your home, but most of them are killed by nasty magical traps before they ever reach your home. Your apprentice deals with the rest of them. 
+     *if (stupidity>51)
+      A large pack of Hellhounds soon reaches your home, most of them were too smart for your stupid traps. Your guards and apprentice lie dead. 
+      *if (book=true) 
+       *set book_dura 45
+       Ancient Book was reduced to 45 uses
+      *if (amulet=true) 
+       *set amulet_dura 8
+       Amulet of Minor Protection loses 4 charges 
+      *if (summonstone=true) 
+       *set summonstone_dura 2
+       Summonstone loses 1 charge 
+       *line_break
+       You are lucky to be alive. 
+ #How dare I be interrupted by this apprentice!
+
+*label statfix
+*if (blood=true) 
+ *set weakness %+20
+
+
+
+
+
 
 
 
@@ -371,7 +480,9 @@ Money: $${money}
    #I'm done shopping.
       Okay, you come back again ya hear now? Have a nice day!
       *page_break
-      *goto end
+     
 
-*label end
-You walked out and immmidiately got arrested.
+*label ending
+You have died a horrible gruesome death. 
+*line_break 
+Save your Wizard to collect achievments and begin another adventure.

@@ -715,6 +715,24 @@ function restartGame(shouldPrompt) {
   }
 }
 
+function saveGame(shouldPrompt) {
+  if (window.tickerRunning) {
+    asyncAlert("Please wait until the timer has run out.");
+    return;
+  }
+  function actuallySave(result) {
+    if (!result) return;
+   document.location.href = '/home'
+  }
+  if (shouldPrompt) {
+    asyncConfirm("Do you want to Save?", actuallySave);
+ 
+  } else {
+
+    actuallySave(true);
+  }
+}
+
 function restoreGame(state, forcedScene, userRestored) {
     var scene;
     var secondaryMode = null;

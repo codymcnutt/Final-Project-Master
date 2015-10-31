@@ -1,5 +1,5 @@
 // Include our Model
-var Hero = require('../models/models')
+var Character = require('../models/models')
 
 // Define our Route Handlers
 
@@ -11,7 +11,7 @@ var createCharacter = function(req, res){
 	var newCharacter = new Character({
 		name			: req.body.name,
 		email			: req.body.email,
-		character		: req.body.character
+		
 		
 	})
 

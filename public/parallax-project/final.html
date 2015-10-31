@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="characterApp">
   <head>
     <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="no">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/parallax-project/main.css">
     <link rel="SHORTCUT ICON" href="/choicescript/web/favicon.ico"/>
   </head>
-  <body>
+  <body ng-controller="characterController">
   <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -56,9 +56,19 @@
 
   <div class="becomeMenu"> 
   <p> What will you become? </p>
- <submit>
-  <a href="/choicescript/web/mygame/index.html"> <Button class="begin"> Begin </Button></a> 
-  </submit>
+  <div>
+   <form action="/choicescript/web/mygame/index.html" method="GET" autocomplete="on" ng-submit="createCharacter()">
+    <input class="begin" type="name" name="fname" style="top: 26%; left: 5%;" ng-model="newCharacter.name" placeholder="Name"></input>
+
+    <input  type="email" name="email"class="begin" style="top: 45%; left:5%; " ng-model="newCharacter.email" placeholder="e-mail"></input>
+   <input style="left: 12%;" class="begin"type="submit">
+
+    <!-- current character is an object and saved characters array  -->
+     
+ 
+  </form>
+ </div>
+ 
   </div>
     
   </body>

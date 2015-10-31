@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="characterApp">
   <head>
     <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="no">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="SHORTCUT ICON" href="../choicescript/web/favicon.ico"/>
   </head>
-  <body>
+  <body ng-controller="characterController">
 <div id="container" class="container" style="
     position: fixed;
     top: -5%;
@@ -31,18 +31,16 @@
   </div>
 
 <script src="deploy/parallax.js"></script>
-  <script>
+  // <script>
   // Nothing new here...it's all in the CSS!
-  var scene = document.getElementById('scene');
-  var parallax = new Parallax(scene);
-  </script>
+  // var scene = document.getElementById('scene');
+  // var parallax = new Parallax(scene);
+  // // </script>
 
-  <div class="becomeMenu"> 
+ <!--  <div class="becomeMenu"> 
   <p> What will you become? </p>
- <submit>
-  <a href="../choicescript/web/mygame/index.html"> <Button class="begin"> Begin </Button></a> 
-  </submit>
-  </div>
+ 
+  </div> -->
     
   </body>
 </html>

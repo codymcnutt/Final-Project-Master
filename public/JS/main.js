@@ -1,7 +1,7 @@
 angular.module('characterApp', [])
 
 angular.module('characterApp')
-	.controller('characterController', ['$scope', 'http', function($scope, $http){
+	.controller('characterController', ['$scope', '$http', function($scope, $http){
 			$http.get('/api/savedGames')
 				.then(function(returnData){
 				  $scope.savedGames = returnData.data	
@@ -35,13 +35,14 @@ $scope.imager = [
 "/backimages/background17.png",
 "/backimages/background18.png",
 "/backimages/background19.png",
-"/backimages/background20.png"
+"/backimages/background20.png",
+"/backimages/background21.png"
 ]
 
-$scope.images = function(event) {
+$scope.images = (function(event) {
 	$scope.r = $scope.imager[Math.floor(Math.random()* $scope.imager.length )]
 
-} ();
+})();
 
 
 
