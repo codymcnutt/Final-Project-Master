@@ -56,20 +56,40 @@
 
   <div class="becomeMenu"> 
   <p> What will you become? </p>
-  <div>
-   <form action="/choicescript/web/mygame/index.html" method="GET" autocomplete="on" ng-submit="createCharacter()">
-    <input class="begin" type="name" name="fname" style="top: 26%; left: 5%;" ng-model="newCharacter.name" placeholder="Name"></input>
+    <div>
+     <form action="/choicescript/web/mygame/index.html" method="GET" autocomplete="on" ng-submit="createCharacter()">
+      <input required class="begin" type="name" name="fname" style="top: 26%; left: 5%;" ng-model="newCharacter.name" placeholder="Name">
 
-    <input  type="email" name="email"class="begin" style="top: 45%; left:5%; " ng-model="newCharacter.email" placeholder="e-mail"></input>
-   <input style="left: 12%;" class="begin"type="submit">
+      <input required type="email" name="email"class="begin" style="top: 45%; left:5%; " ng-model="newCharacter.email" placeholder="e-mail">
+      <input style="left: 12%;" class="begin"type="submit">
 
     <!-- current character is an object and saved characters array  -->
      
  
-  </form>
- </div>
- 
+   </form>
   </div>
+<!--     <div>
+     <form action="/auth/signup" method="POST" autocomplete="on">
+      <input class="begin" type="name" name="username" style="top: 76%; left: 5%;"placeholder="Username">
+      <input  type="email" name="email"class="begin" style="top: 82%; left:5%; "placeholder="e-mail">
+      <input type="password" name="password" placeholder="Password"/>
+      <input style="left: 12%;" class="begin" type="submit"/>
+    <!-- current character is an object and saved characters array  -->
+    
+    </form>
+  </div> -->
+</div>
+<div>
+<!--    <form action="/auth/signup" method="post">
+    <input type="text" name="username" placeholder="Username"/>
+    <input type="email" name="email" placeholder="Email"/>
+    <input type="password" name="password" placeholder="Password"/>
+    <input type="submit"/>
+  </form> -->
+</div>
+
+ 
+ 
     
   </body>
 </html>

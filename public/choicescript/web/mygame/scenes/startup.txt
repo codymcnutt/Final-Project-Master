@@ -116,7 +116,7 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
   #I don’t know ask my apprentice what it does?
     While it’s great to have help, being unaware of your apprentice is dangerous. 
     *line_break
-    Stupidity Increase 5% Intelligence degrease 5%
+    Stupidity Increase 5% Intelligence decrease 5%
     *set Stupidity %+10
     *comment Letting apprentice do everything leads to stupidity. 
 
@@ -307,7 +307,7 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
    *if (blood=true)
       Bloodthirsty -20% this test 
       *set weakness %+20
-     *if (weakness<41)
+   *if (weakness<41)
       A gruesome pack of Hellhounds attacks your home shortly after midnight. Within minutes most of your guards lie dead around you. 
       *line_break
       You manage to defend yourself but at great cost. Your home and any spells you were working on are completely destroyed. 
@@ -323,10 +323,12 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
        Summonstone loses 1 charge 
       *line_break
       *goto statfix
-    *if (weakness>51)
+   *if (weakness>51)
       A pack of Hellhounds arrive at your home shortly thereafter. They rip through your defenses and quickly slay your apprentice.
       *line_break
-      You attempt to use your magic but the beasts overwhelm you. In seconds your eyes are torn out and the wold goes dark. All you can feel is burning. 
+      You attempt to use your magic but the beasts overwhelm you. In seconds your eyes are torn out and the world goes dark. 
+      *line_break
+      All you can feel is burning. 
       *goto ending 
  #Prepare to flee for safety
  #Do nothing, I don't have to worry about threats
@@ -369,6 +371,10 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
        *line_break
        You are lucky to be alive. 
  #How dare I be interrupted by this apprentice!
+    How right you are. Surely you will deal with his impudence later. What will you do now? 
+    #Kill my apprenctice now
+    *hide_reuse #I want to carefully review my options
+     *goto attackHome
 
 *label statfix
 *if (blood=true) 

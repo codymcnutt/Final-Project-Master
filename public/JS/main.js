@@ -2,7 +2,7 @@ angular.module('characterApp', [])
 
 angular.module('characterApp')
 	.controller('characterController', ['$scope', '$http', function($scope, $http){
-			$http.get('/api/savedGames')
+			$http.post('/api/savedGames')
 				.then(function(returnData){
 				  $scope.savedGames = returnData.data	
 				})

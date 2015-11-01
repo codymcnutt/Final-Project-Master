@@ -22,13 +22,13 @@ How interesting your life appears!
    *set inventory &"You are carrying nothing"
 *if (sword)
    *set comma true
-   *set inventory &"$!{sword_name} (Durabillity: ${sword_dura})"
+   *set inventory &"$!{sword_name} (Durability: ${sword_dura})"
 *if (book)
    *set comma true
-   *set inventory &"$!{book_name} (Durabillity: ${book_dura})"
+   *set inventory &"$!{book_name} (Durability: ${book_dura})"
 *if (Amulet)
    *set comma true
-   *set inventory &"$!{amulet_name} (Durabillity: ${amulet_dura})"
+   *set inventory &"$!{amulet_name} (Durability: ${amulet_dura})"
 *if (potion)
    *set comma true
    *set inventory &"$!{potion_name} (Durabillity: ${potion_dura})"
