@@ -63,8 +63,10 @@
 *create blood false
 *create blood_name "Bloodthirsty"
 *create familyWealth 0
-
-
+*create dog false
+*create dog_name "Puppy Love"
+*create snake false
+*create snake_name "Ophidiophobia"
 *label startpoint
 Welcome to Lives of Wizards!
 *page_break
@@ -107,23 +109,27 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
      *line_break
      You gained a poison potion
      *image poison.png
+     *set inventory true
   *if (book=true)
     #It’s a scroll filled with power to make someone sleep
      Oh how sneaky of you, sweet dreams will fill some enemies dreams while you make moves against them.
      *line_break
      *image book.png
      You gained a spellbook 
+     *set inventory true
   *if (amulet=true)
     #An amulet to ward off minor spells
      That’s thinking ahead, you never know when some wizard is going to try to hurt you with a minor spell. Those are the most dangerous kind.
      *line_break
      You gained an amulet
      *image Amulet.png
+     *set inventory true
   *if (summonstone=true)
     #A shiny orb to communicate with spirits on the astral plane
      Be careful, those spirits scare me, but it will come in handy being able to communicate with them. 
      *line_break
      You gained a summoning stone
+     *set inventory true
      *image stone.png
   #I don’t know ask my apprentice what it does?
     While it’s great to have help, being unaware of your apprentice is dangerous. 
@@ -320,19 +326,20 @@ As a child did you have an appetite for learning or did you spent most of your t
       This is what you look like.
       *image male9.png 
       *page_break
-*if (((gender=1) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
+*if (((gender=1) and (stupidity<50)) and ((ugliness>50) and (summonstone=true)))
       This is what you look like. 
+      *set inventory true
       *image male7.png
       *page_break
-*if (((gender=1) and (stupidity>50)) and ((prestige>50) and (book=true)))
-      This is what you look like. 
+*if (((gender=1) and (stupidity<45)) and ((ugliness>55) and (book=true)))
+      This is what you look like. You're mighty staff warns the dead of your powers
       *line_break
       You gain the Skeleton Key Staff
       *set skeletonKey true
       *image male4.png
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (inventory=false)))
-      This is what you look like. 
+      This is what you look like. For you are the wandering Wizard. You carry nothing with you.
       *image male5.png
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
@@ -355,7 +362,21 @@ Your childhood was at times difficult. And you encountered many new and amazing 
 Except for a night you will never forget. You were on your way home and something truly traumatic and frightening happened to you.
 If you don’t mind me asking what was it that happened that night?
 *fake_choice
-  
+  *if (summonstone=true)
+    #On your way home late at night, a pack of wild dogs attacked you. Most of them were rabbid. You only avoided being chewed up alive by grabbing a nearby board with a rusty nail and crushing the dogs skulls with it. 
+     You gained fear: Puppy Love -20% to tests with dogs. 
+     *set dog true
+     *set empty_fear false
+     *line_break
+     *set fear_effect "-20% to tests with dogs" 
+     *image rabbid.png
+  *if (gender=0) and ((book=true) or (amulet=true))
+   # As my sister and I walked home we encountered a large snake. My sister being naturally curious walked up to the snake and got bit. She died later that night. Since then I've been terrified of snakes. 
+     You gained fear: Ophidiophobia -20% to tests with snakes. 
+    *set snake true
+    *set empty_fear false
+    *set fear_effect "-20% to tests with snakes" 
+    *image snake.png
   *if (ugliness < 51)
     #I was walking home and four thugs stepped out of a warehouse and beat me to within an inch of my life. As I lay there sure I would die a city guard came around the corner, running towards my limp body he chased off the thugs and carried me to safety. 
       Ever since that night you have had trouble with your right leg. The scars mark your body. And the momories mark your mind. You struggle interacting with people because of that night. 
@@ -448,8 +469,8 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
     *set empty_inventory true
     *line_break
  #I want to attack 
-   *if (blood=true)
-      Bloodthirsty -20% this test 
+   *if (blood=true) or (dog=true)
+      Bloodthirsty or Puppy Love -20% this test 
       *set weakness %+20
    *if (weakness<41)
       A gruesome pack of Hellhounds attacks your home shortly after midnight. Within minutes most of your guards lie dead around you. 

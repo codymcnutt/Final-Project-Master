@@ -45,6 +45,30 @@ How interesting your life appears!
       *set inventory &", "
    *set comma true
    *set inventory &"Health Potion(s) (x${hp_number})"
+*if (skeletonKey)
+   *set comma true
+   *set inventory &"$!{skeletonKey_name}"
+*if (knarledStaff)
+   *set comma true
+   *set inventory &"$!{knarledStaff_name}"
+*if (magusWand)
+   *set comma true
+   *set inventory &"$!{magusWand_name}"
+*if (iceScepter)
+   *set comma true
+   *set inventory &"$!{iceScepter_name}"
+*if (lightRod)
+   *set comma true
+   *set inventory &"$!{lightRod_name}"
+*if (treeStaff)
+   *set comma true
+   *set inventory &"$!{treeStaff_name}"
+*if (swordTruth)
+   *set comma true
+   *set inventory &"$!{swordTruth_name}"
+*if (spiritStaff)
+   *set comma true
+   *set inventory &"$!{spiritStaff_name}"
 Inventory: ${inventory}
 *line_break
 Gold: ${money} pieces
@@ -59,5 +83,11 @@ Gold: ${money} pieces
 *if (spider)
    *set comma true
    *set fear &"$!{spider_name} (Effect: ${fear_effect})"
+*if (dog)
+   *set comma true
+   *set fear &"$!{dog_name} (Effect: ${fear_effect})"
+*if (snake)
+   *set comma true
+   *set fear &"$!{snake_name} (Effect: ${fear_effect})"
 *line_break
 Fear: ${fear}
