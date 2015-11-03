@@ -2,12 +2,25 @@
     position: absolute;
     top: 8%;
     left: 32%;
-    height: 85%;
-    width: 35%;
+    height: 42%;
+    width: 30%;
     background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1)); /* For Safari 5.1 to 6.0 */
     background: linear-gradient(to right, rgba(12,17,39,0), rgba(12, 17,39,1));
     opacity: 0.68;
-    box-shadow: 11px 10px 64px -16px azure;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 25px;
+    color: ghostwhite;
+}
+.becomeMenu2{
+    position: absolute;
+    top: 49.9%;
+    left: 32%;
+    height: 42%;
+    width: 30%;
+    background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1)); /* For Safari 5.1 to 6.0 */
+    background: linear-gradient(to right, rgba(12,17,39,0), rgba(12, 17,39,1));
+    opacity: 0.68;
     text-align: center;
     font-family: fantasy;
     font-size: 25px;
@@ -22,11 +35,11 @@
 	border-radius: 20px;
 	text-align: center;	
 	background-color: ghostwhite;
-	opacity: .4;	
+	opacity: .5;	
 	color: black;	
 	height:45px;
 	top:62%;
-    left:4%;
+    left:2%;
 }
 
 .signup{
@@ -38,11 +51,11 @@
     border-radius: 20px;
     text-align: center; 
     background-color: floralwhite;
-    opacity: .4;    
+    opacity: .5;    
     color: black;   
     height:45px;
     top:64%;
-    left:4%;
+    left:2%;
 }
 input {
     border: 10px solid #00FFAA;

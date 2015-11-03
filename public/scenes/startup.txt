@@ -7,6 +7,7 @@
 
 
 *create name ""
+*create deadGuyLink ""
 *create Inventory false 
 *create gender 1
 *create Weakness 50
@@ -108,13 +109,13 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
      Good thinking! Clever planning like this will be useful, when you have dangerous enemies. 
      *line_break
      You gained a poison potion
-     *image poison.png
+     *image /choicescript/web/mygame/poison.png
      *set inventory true
   *if (book=true)
     #It’s a scroll filled with power to make someone sleep
      Oh how sneaky of you, sweet dreams will fill some enemies dreams while you make moves against them.
      *line_break
-     *image book.png
+     *image /choicescript/web/mygame/book.png
      You gained a spellbook 
      *set inventory true
   *if (amulet=true)
@@ -122,7 +123,7 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
      That’s thinking ahead, you never know when some wizard is going to try to hurt you with a minor spell. Those are the most dangerous kind.
      *line_break
      You gained an amulet
-     *image Amulet.png
+     *image /choicescript/web/mygame/Amulet.png
      *set inventory true
   *if (summonstone=true)
     #A shiny orb to communicate with spirits on the astral plane
@@ -130,7 +131,7 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
      *line_break
      You gained a summoning stone
      *set inventory true
-     *image stone.png
+     *image /choicescript/web/mygame/stone.png
   #I don’t know ask my apprentice what it does?
     While it’s great to have help, being unaware of your apprentice is dangerous. 
     *line_break
@@ -151,7 +152,7 @@ You know, it's going to get annoying to keep calling you "Great and Powerful " W
  *set stupidity %-20
  *set prestige %+30
  *set ugliness %+20
- *image gandalf.png
+ *image /choicescript/web/mygame/gandalf.png
  *set weakness %+20
 *comment endif
 *if (name="Harry Potter")
@@ -160,11 +161,11 @@ You know, it's going to get annoying to keep calling you "Great and Powerful " W
  *set prestige %+30
  *set ugliness %-10
  *set weakness %-20
- *image harrypotter.png
+ *image /choicescript/web/mygame/harrypotter.png
 *comment endif
 *if (name="Merlin") or (name="merlin")
  Merlin's beard, it's you!  
- *image merlin.png
+ *image /choicescript/web/mygame/merlin.png
  *set stupidity %-40
  *set prestige %+40
  *set ugliness %+20
@@ -172,7 +173,7 @@ You know, it's going to get annoying to keep calling you "Great and Powerful " W
 *comment endif
 
 Excellent ${name} is a very fine name indeed. Would you be male or female?
-
+*set deadGuyLink "/death?deadGuy=${name}"
 *fake_choice
   # Male 
     *set gender 1
@@ -254,7 +255,7 @@ As a child did you have an appetite for learning or did you spent most of your t
 *if (name="Harry Potter")
   *goto fear
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (amulet=true)))
-      *image female1.png
+      *image /choicescript/web/mygame/female1.png
       This is what you look like. 
       *line_break
       You gained the Ice Scepter
@@ -262,50 +263,50 @@ As a child did you have an appetite for learning or did you spent most of your t
       *page_break
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (book=true)))
       You gained the Light Rod
-      *image female10.png
+      *image /choicescript/web/mygame/female10.png
       This is what you look like. 
       *line_break
       You gained the Light Rod
       *set lightRod true 
 *if (((gender=0) and (weakness<51)) and ((ugliness>50) and (potion=true)))
       This is what you look like.
-      *image female8.png 
+      *image /choicescript/web/mygame/female8.png 
       *page_break
 *if (((gender=0) and (prestige<40)) and ((ugliness>50) and (amulet=true)))
       This is what you look like.
-      *image female4.png 
+      *image /choicescript/web/mygame/female4.png 
       *page_break
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
       This is what you look like. 
-      *image female3.png
+      *image /choicescript/web/mygame/female3.png
       *page_break
 *if (((gender=0) and (stupidity>50)) and ((prestige>50) and (book=true)))
       This is what you look like. 
       You've gained the Spirit Staff
       *set spiritStaff true
-      *image female6.png
+      *image /choicescript/web/mygame/female6.png
       *page_break
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (inventory=false)))
       This is what you look like. 
       *line_break
       You have found the Sword of Truth
-      *image female5.png
+      *image /choicescript/web/mygame/female5.png
       *page_break
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
       This is what you look like. 
-      *image female7.png
+      *image /choicescript/web/mygame/female7.png
       *page_break
 *if (((gender=0) and (prestige>49)) and ((stupidity<50) and (potion=true)))
       This is what you look like. 
       You gained Treebeard's Leg Staff
       *set treestaff true
-      *image female9.png
+      *image /choicescript/web/mygame/female9.png
       *page_break
 
 
 
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (amulet=true)))
-      *image male1.png
+      *image /choicescript/web/mygame/male1.png
       This is what you look like. 
       *line_break
       You gained the Knarled Staff
@@ -315,40 +316,40 @@ As a child did you have an appetite for learning or did you spent most of your t
       This is what you look like. 
       *line_break
       You gained the Magus Wand 
-      *image male6.png
+      *image /choicescript/web/mygame/male6.png
       *set magusWand true
       *page_break
 *if (((gender=1) and (weakness<51)) and ((ugliness>50) and (potion=true)))
       This is what you look like.
-      *image male10.png 
+      *image /choicescript/web/mygame/male10.png 
       *page_break
 *if (((gender=1) and (prestige<40)) and ((ugliness>50) and (amulet=true)))
       This is what you look like.
-      *image male9.png 
+      *image /choicescript/web/mygame/male9.png 
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((ugliness>50) and (summonstone=true)))
       This is what you look like. 
       *set inventory true
-      *image male7.png
+      *image /choicescript/web/mygame/male7.png
       *page_break
 *if (((gender=1) and (stupidity<45)) and ((ugliness>55) and (book=true)))
       This is what you look like. You're mighty staff warns the dead of your powers
       *line_break
       You gain the Skeleton Key Staff
       *set skeletonKey true
-      *image male4.png
+      *image /choicescript/web/mygame/male4.png
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (inventory=false)))
       This is what you look like. For you are the wandering Wizard. You carry nothing with you.
-      *image male5.png
+      *image /choicescript/web/mygame/male5.png
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
       This is what you look like. 
-      *image male2.png
+      *image /choicescript/web/mygame/male2.png
       *page_break
 *if (((gender=1) and (prestige>49)) and ((stupidity<50) and (potion=true)))
       This is what you look like. 
-      *image male3.png
+      *image /choicescript/web/mygame/male3.png
       *page_break
 
 
@@ -369,14 +370,14 @@ If you don’t mind me asking what was it that happened that night?
      *set empty_fear false
      *line_break
      *set fear_effect "-20% to tests with dogs" 
-     *image rabbid.png
+     *image /choicescript/web/mygame/rabbid.png
   *if (gender=0) and ((book=true) or (amulet=true))
    # As my sister and I walked home we encountered a large snake. My sister being naturally curious walked up to the snake and got bit. She died later that night. Since then I've been terrified of snakes. 
      You gained fear: Ophidiophobia -20% to tests with snakes. 
     *set snake true
     *set empty_fear false
     *set fear_effect "-20% to tests with snakes" 
-    *image snake.png
+    *image /choicescript/web/mygame/snake.png
   *if (ugliness < 51)
     #I was walking home and four thugs stepped out of a warehouse and beat me to within an inch of my life. As I lay there sure I would die a city guard came around the corner, running towards my limp body he chased off the thugs and carried me to safety. 
       Ever since that night you have had trouble with your right leg. The scars mark your body. And the momories mark your mind. You struggle interacting with people because of that night. 
@@ -384,7 +385,7 @@ If you don’t mind me asking what was it that happened that night?
       Ugliness increases 15%
       Prestige decreases 5%
       *set ugliness %+30
-      *image thug.png
+      *image /choicescript/web/mygame/thug.png
       *set prestige %-10
 
   #After a night of exploring some abandoned warehouses by the docks I stumbled into a room that appeared to be a torture chamber, it was filled with dead bodies and decapitated heads. 
@@ -392,7 +393,7 @@ If you don’t mind me asking what was it that happened that night?
     *line_break
     You gained fear: Bloodthirsty -20% to tests with blood.
     *set blood true
-    *image bloody.png
+    *image /choicescript/web/mygame/bloody.png
     *set empty_fear false
     *set fear_effect "-20% to tests with blood" 
 
@@ -400,7 +401,7 @@ If you don’t mind me asking what was it that happened that night?
   #As I headed down an alley I noticed sitting atop one of the buildings a giant brown spider. It was watching me. Sitting silently, I froze as the spider started running towards me. I escaped but just barely.   
     You are now afraid of most bugs, but if you see a spider terror strikes you and paralyzes you. 
     *line_break  
-    *image spider.png
+    *image /choicescript/web/mygame/spider.png
     You gained fear: Arachnid Phobia -20% to tests with spiders. 
     *set spider true
     *set empty_fear false
@@ -439,14 +440,14 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
  *if (stupidity < 42)
   *hide_reuse #Calmly ask the apprentice for more information about the threat
    Your apprentice seems pretty shaken up. After a moment you get him to calm down and he tells you that a pack of hellhounds has been seen heading for your home. 
-   *image hellhound.png 
+   *image /choicescript/web/mygame/hellhound.png 
    What do you want to do? 
    *goto attackHome
 
 
  #Old enemies stir prepare our defenses
   You don't know what is comming, but you're sure you can defend against it. A fierce pack of 32 hellhounds soon emerges from the forst. 
-  *image hellhound.png
+  *image /choicescript/web/mygame/hellhound.png
   *line_break
   Your defenses are soon completely overun. 
   *line_break
@@ -540,7 +541,7 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
        *line_break
        You are lucky to be alive. 
     *hide_reuse #How dare I be interrupted by this apprentice!
-                How right you are. Surely you will deal with his impudence later. What will you do now? 
+                  How right you are. Surely you will deal with his impudence later. What will you do now? 
                 *fake_choice
                   *hide_reuse #Kill my apprenctice now
                    Your cast a simple spell and your apprentice falls over dead in the next room. He wasn't worth much anyways. 
@@ -572,7 +573,8 @@ For now...
 You have died a horrible gruesome death.
 *line_break
 *line_break
-*link /death SAVE YOUR GAME HERE
+*link deadGuyLink SAVE YOUR GAME HERE
+*script saveDeadGuy()
 *line_break
 *line_break
 *fake_choice

@@ -1,6 +1,6 @@
 <html ng-app="characterApp">
 <body ng-controller="characterController" style="margin:0px">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
 <div>
 	<img style="position: absolute;
     width: 104%;
@@ -16,7 +16,7 @@ top: 42%;
 width: 20%;
 ">
 
-	<a href="/choicescript/web/mygame/index.html"><button 
+	<a href="/game"><button 
 	style="    font-family: fantasy;
     position: fixed;
     left: 82%;
@@ -33,9 +33,16 @@ width: 20%;
     font-size: 3em;
     top: 18%;
     left: 49%;
-    text-shadow: -2px 2px gray;"> Hail {{savedGames}} </p>
+    text-shadow: -2px 2px gray;"> Hail {{user.username}} </p>
 </div>
-<div> {{deadGuys}}
+<div> {{user.deadGuys}}
 </div>
+
+<!-- for Eduard -->
+<!-- <div>
+<img src="scale.png">
+<p> CLASS </p>> <p>Composer </p>
+</div> -->
+<script src="/JS/main.js"></script>
 </body>
 </html>

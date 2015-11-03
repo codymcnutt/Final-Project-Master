@@ -1,7 +1,24 @@
+var saveDeadGuy = function(){
+	console.log(stats)
+	window.location.href = stats.deadguylink
+}
+
 angular.module('characterApp', [])
 
 angular.module('characterApp')
 	.controller('characterController', ['$scope', '$http', function($scope, $http){
+
+			$http.get('/api/me')
+				.then(function(returnData){
+					if(!returnData.data){
+						// if not logged in, force back to home page
+						window.location.href="/"
+					}
+					
+					$scope.user = returnData.data
+
+				})
+
 			$http.post('/api/savedGames')
 				.then(function(returnData){
 				  $scope.savedGames = returnData.data	
@@ -46,6 +63,15 @@ $scope.images = (function(event) {
 
 
 
+
+  $scope.newUser = true;
+
+  // Toggles the button
+  $scope.newUserToggle = function() {
+
+    $scope.newUser = !$scope.newUser;
+
+  };
 
 
 

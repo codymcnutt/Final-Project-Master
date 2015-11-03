@@ -4,10 +4,10 @@ var bcrypt = require('bcryptjs');
 // Define our Schema for the DB
 var CharacterSchema = mongoose.Schema({
 
-	name					: {type : String},
-	email					: {type : String},
+	name					      : {type : String},
+	email					      : {type : String},
 	currentCharacter		: {}, 
-	deadGuys				: {type : Array, default: []}
+	deadGuys				    : {type : Array, default: []}
 	// empty object denotes it could change - typless property
 	
 
@@ -34,7 +34,9 @@ var userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  deadGuys            : {type : Array, default: []}
+  
 });
 
 // **

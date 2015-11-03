@@ -4,9 +4,10 @@
     <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="no">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
 
     <title>Lives of Wizards</title>
+    
     <link rel="stylesheet" href="/parallax-project/style.css">
     <link rel="stylesheet" href="/parallax-project/main.css">
     <link rel="SHORTCUT ICON" href="/choicescript/web/favicon.ico"/>
@@ -64,11 +65,9 @@
       <input style="left: 12%;" class="begin"type="submit"> -->
 
     <!-- current character is an object and saved characters array  -->
-     
- 
    <!-- </form> -->
    <p> Login Here</p>
-  </div>
+    </div>
     <div>
      <form action="/auth/login" method="POST" autocomplete="on">
       <input class="begin" type="name" name="username" placeholder="Username">
@@ -78,19 +77,22 @@
     
     </form>
 
+    </div>
+  </div>
 
+<div class="becomeMenu2">
     <p> New User Signup</p>
-   <form action="/auth/signup" method="post">
-    <input class="signup"type="text" name="username" placeholder="Username"/>
-    <input class="signup" type="email" name="email" placeholder="Email"/>
-    <input class="signup" type="password" name="password" placeholder="Password"/>
-    <input class="signup" type="submit"/>
+   <form action="/auth/signup" method="post" >
+    <input ng-show="newUser" ng-click="newUserToggle"class="signup"type="text" name="username" placeholder="Username"/>
+    <input ng-show="newUser" class="signup" type="email" name="email" placeholder="Email"/>
+    <input ng-show="newUser" class="signup" type="password" name="password" placeholder="Password"/>
+    <input ng-show="!newUser" class="signup" type="submit"/>
   </form>
 </div>
 
  
  
-    
+    <script src="/JS/main.js"></script>
   </body>
 </html>
 

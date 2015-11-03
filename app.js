@@ -65,16 +65,24 @@ app.get('/api/me', function(req, res){
 // app.use(passportConfig.ensureAuthenticated);
 
 app.get ('/death', function(req,res){
-	res.user.deadGuys.push(deadGuys)
-	req.user.save()
+	req.user.deadGuys = req.user.deadGuys || []
+	req.user.deadGuys.push({name : req.query.deadGuy })
+	req.user.markModified('deadGuys')
+	req.user.save( function(err){
+		console.log('save err', err)
+	} )
 	res.redirect('/home')
 });
 app.get('/home', function(req, res){
   res.sendFile("/html/home.html", {root : './public'})
 });
-
+app.get('/game',function(req, res){
+  res.sendFile("/choicescript/web/mygame/index.html", {root : './public'})
+})
 app.post('/api/savedGames', controller.createCharacter)
-
+app.get('/api/me', function(req, res){
+	res.send(req.user)
+})
 
 // Creating Server and Listening for Connections \\
 var port = 3000
