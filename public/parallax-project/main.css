@@ -1,8 +1,8 @@
 .becomeMenu {
     position: absolute;
-    top: 10%;
-    left: 35%;
-    height: 45%;
+    top: 8%;
+    left: 32%;
+    height: 85%;
     width: 35%;
     background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1)); /* For Safari 5.1 to 6.0 */
     background: linear-gradient(to right, rgba(12,17,39,0), rgba(12, 17,39,1));
@@ -12,9 +12,11 @@
     font-family: fantasy;
     font-size: 25px;
     color: ghostwhite;
-
 }
 .begin{
+    text-align: center;
+    position:relative;
+    margin-bottom: 10px;
 	border: none;	
 	font-family: fantasy;
 	border-radius: 20px;
@@ -22,7 +24,39 @@
 	background-color: ghostwhite;
 	opacity: .4;	
 	color: black;	
-	height:50px;
+	height:45px;
 	top:62%;
+    left:4%;
+}
 
+.signup{
+    text-align: center;
+    position:relative;
+    margin-bottom: 10px;
+    border: none;   
+    font-family: fantasy;
+    border-radius: 20px;
+    text-align: center; 
+    background-color: floralwhite;
+    opacity: .4;    
+    color: black;   
+    height:45px;
+    top:64%;
+    left:4%;
+}
+input {
+    border: 10px solid #00FFAA;
+    position: absolute;
+    line-height: 50px;
+    text-align: right;
+    padding: 0 1.2em;
+    background: #444;
+    cursor: pointer;
+    display: block;
+    outline: none;
+    /* height: 80px; */
+    width: 80%;
+    top: 260px;
+    margin: 0;
+    left: 10%;
 }

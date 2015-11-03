@@ -3,11 +3,8 @@
 *author Cody McNutt
 *scene_list
   startup
-  animal
-  variables
-  gosub
-  ending
-  death
+  
+
 
 *create name ""
 *create Inventory false 
@@ -42,6 +39,22 @@
 *create summonstone false
 *create summonstone_name "Mystic Summoning Stone"
 *create summonstone_dura 3
+*create iceScepter false
+*create iceScepter_name "Ice Scepter"
+*create lightRod false
+*create lightRod_name "Light Rod"
+*create treestaff false
+*create treestaff_name "Treabeard's Leg"
+*create spiritStaff false
+*create spiritStaff_name "Spirit Staff"
+*create swordTruth false
+*create swordTruth_name "Sword of Truth"
+*create knarledstaff false
+*create knarledstaff_name "Knarled Staff"
+*create magusWand false
+*create magusWand_name "Magus Wand"
+*create skeletonKey false
+*create skeletonKey_name "Skeleton Key Staff"
 *create fear false
 *create empty_fear true
 *create spider false
@@ -52,8 +65,7 @@
 *create familyWealth 0
 
 
-
-
+*label startpoint
 Welcome to Lives of Wizards!
 *page_break
 Let us begin Master Wizard. 
@@ -176,12 +188,12 @@ Excellent ${name} is a very fine name indeed. Would you be male or female?
      *set gender2 "My Lady"
      *set gender3 "Madam"
      *set gender4 "Queen"
-    *goto gender_selected
 
 *comment endif
 
 *label gender_selected
 ${gender3} ${name} let’s move on. 
+*line_break
 *comment endif
 
 This would be a good time to discuss your background and strengths. 
@@ -227,8 +239,117 @@ As a child did you have an appetite for learning or did you spent most of your t
    *set weakness %-20
    *line_break 
    Weakness decreases 10%
-*comment endif
+*page_break
 
+*if (name="Merlin") or (name="merlin") 
+   *goto fear
+*if (name="Gandalf") or (name="gandalf") 
+  *goto fear
+*if (name="Harry Potter")
+  *goto fear
+*if (((gender=0) and (stupidity<50)) and ((weakness>50) and (amulet=true)))
+      *image female1.png
+      This is what you look like. 
+      *line_break
+      You gained the Ice Scepter
+      *set iceScepter true 
+      *page_break
+*if (((gender=0) and (stupidity<50)) and ((weakness>50) and (book=true)))
+      You gained the Light Rod
+      *image female10.png
+      This is what you look like. 
+      *line_break
+      You gained the Light Rod
+      *set lightRod true 
+*if (((gender=0) and (weakness<51)) and ((ugliness>50) and (potion=true)))
+      This is what you look like.
+      *image female8.png 
+      *page_break
+*if (((gender=0) and (prestige<40)) and ((ugliness>50) and (amulet=true)))
+      This is what you look like.
+      *image female4.png 
+      *page_break
+*if (((gender=0) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
+      This is what you look like. 
+      *image female3.png
+      *page_break
+*if (((gender=0) and (stupidity>50)) and ((prestige>50) and (book=true)))
+      This is what you look like. 
+      You've gained the Spirit Staff
+      *set spiritStaff true
+      *image female6.png
+      *page_break
+*if (((gender=0) and (stupidity<50)) and ((weakness>50) and (inventory=false)))
+      This is what you look like. 
+      *line_break
+      You have found the Sword of Truth
+      *image female5.png
+      *page_break
+*if (((gender=0) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
+      This is what you look like. 
+      *image female7.png
+      *page_break
+*if (((gender=0) and (prestige>49)) and ((stupidity<50) and (potion=true)))
+      This is what you look like. 
+      You gained Treebeard's Leg Staff
+      *set treestaff true
+      *image female9.png
+      *page_break
+
+
+
+*if (((gender=1) and (stupidity<50)) and ((weakness>50) and (amulet=true)))
+      *image male1.png
+      This is what you look like. 
+      *line_break
+      You gained the Knarled Staff
+      *set knarledstaff true
+      *page_break
+*if (((gender=1) and (stupidity<50)) and ((weakness>50) and (book=true)))
+      This is what you look like. 
+      *line_break
+      You gained the Magus Wand 
+      *image male6.png
+      *set magusWand true
+      *page_break
+*if (((gender=1) and (weakness<51)) and ((ugliness>50) and (potion=true)))
+      This is what you look like.
+      *image male10.png 
+      *page_break
+*if (((gender=1) and (prestige<40)) and ((ugliness>50) and (amulet=true)))
+      This is what you look like.
+      *image male9.png 
+      *page_break
+*if (((gender=1) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
+      This is what you look like. 
+      *image male7.png
+      *page_break
+*if (((gender=1) and (stupidity>50)) and ((prestige>50) and (book=true)))
+      This is what you look like. 
+      *line_break
+      You gain the Skeleton Key Staff
+      *set skeletonKey true
+      *image male4.png
+      *page_break
+*if (((gender=1) and (stupidity<50)) and ((weakness>50) and (inventory=false)))
+      This is what you look like. 
+      *image male5.png
+      *page_break
+*if (((gender=1) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
+      This is what you look like. 
+      *image male2.png
+      *page_break
+*if (((gender=1) and (prestige>49)) and ((stupidity<50) and (potion=true)))
+      This is what you look like. 
+      *image male3.png
+      *page_break
+
+
+
+
+
+
+*label fear
 Your childhood was at times difficult. And you encountered many new and amazing experiences.  
 
 Except for a night you will never forget. You were on your way home and something truly traumatic and frightening happened to you.
@@ -302,7 +423,30 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
    *goto attackHome
 
 
- #Old enemies must be stirring prepare our defenses
+ #Old enemies stir prepare our defenses
+  You don't know what is comming, but you're sure you can defend against it. A fierce pack of 32 hellhounds soon emerges from the forst. 
+  *image hellhound.png
+  *line_break
+  Your defenses are soon completely overun. 
+  *line_break
+  Using your greatest magics you barely escape with your life. 
+  *if (book=true) 
+    *line_break
+    *set book false
+    *set inventory false
+    *set empty_inventory true
+    Ancient Book was lit on fire and destroyed
+  *if (amulet=true) 
+    *line_break
+    *set amulet_dura 2
+    Amulet of Minor Protection loses 10 charges 
+  *if (summonstone=true) 
+    *line_break
+    Your Summonstone has been destroyed
+    *set summonstone false 
+    *set inventory false
+    *set empty_inventory true
+    *line_break
  #I want to attack 
    *if (blood=true)
       Bloodthirsty -20% this test 
@@ -329,21 +473,21 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
       You attempt to use your magic but the beasts overwhelm you. In seconds your eyes are torn out and the world goes dark. 
       *line_break
       All you can feel is burning. 
-      *goto ending 
+      *goto_scene startup ending
  #Prepare to flee for safety
  #Do nothing, I don't have to worry about threats
-   Why don't you have to worry?
-*fake_choice
- #My home is well defended by guards
-   *if (prestige > 58)
-    Right you are. When the Hellhounds threw themselves at your defenses they were obliterated. 
-   *if (prestige > 54)
-    Although it was close, your defenses held against the asault of the Hellhound pack. A lot of guards died and your defenses have been significantly weakened. 
-   *if (prestige < 55)
-       While your home was well defended, when the Hellhounds attacked it was a disaster. Panic and fear struck your guards as they watched the rotting flesh move from the forests to attack. 
-       *line_break
-       Your home is completely destroyed
-       *line_break
+  Why don't you have to worry?
+  *fake_choice
+    #My home is well defended by guards
+       *if (prestige > 58)
+        Right you are. When the Hellhounds threw themselves at your defenses they were obliterated. 
+       *if (prestige > 54)
+        Although it was close, your defenses held against the asault of the Hellhound pack. A lot of guards died and your defenses have been significantly weakened. 
+       *if (prestige < 55)
+        While your home was well defended, when the Hellhounds attacked it was a disaster. Panic and fear struck your guards as they watched the rotting flesh move from the forests to attack. 
+        *line_break
+        Your home is completely destroyed
+        *line_break
        *if (book=true) 
         *set book_dura 45
         Ancient Book was reduced to 45 uses
@@ -354,141 +498,63 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
         *set summonstone_dura 2
         Summonstone loses 1 charge 
        *line_break
- #I have magical traps set all over this place 
+    #I have magical traps set all over this place 
      *if (stupidity<42)
       Hellhounds soon attack your home, but most of them are killed by nasty magical traps before they ever reach your home. Your apprentice deals with the rest of them. 
      *if (stupidity>51)
-      A large pack of Hellhounds soon reaches your home, most of them were too smart for your stupid traps. Your guards and apprentice lie dead. 
+      A large pack of Hellhounds soon reaches your home, most of them were too smart for your stupid traps. Your guards lay dead. 
       *if (book=true) 
        *set book_dura 45
        Ancient Book was reduced to 45 uses
       *if (amulet=true) 
        *set amulet_dura 8
+       *line_break
+       You are lucky to be alive. 
        Amulet of Minor Protection loses 4 charges 
+       *line_break
+       You are lucky to be alive. 
       *if (summonstone=true) 
        *set summonstone_dura 2
        Summonstone loses 1 charge 
        *line_break
        You are lucky to be alive. 
- #How dare I be interrupted by this apprentice!
-    How right you are. Surely you will deal with his impudence later. What will you do now? 
-    #Kill my apprenctice now
-    *hide_reuse #I want to carefully review my options
-     *goto attackHome
+    *hide_reuse #How dare I be interrupted by this apprentice!
+                How right you are. Surely you will deal with his impudence later. What will you do now? 
+                *fake_choice
+                  *hide_reuse #Kill my apprenctice now
+                   Your cast a simple spell and your apprentice falls over dead in the next room. He wasn't worth much anyways. 
+                   *line_break
+                   Now about this pending attack what to do?
+                   *goto attackHome
+                  *hide_reuse #I want to carefully review my options
+                   *goto attackHome
 
 *label statfix
 *if (blood=true) 
  *set weakness %+20
+*comment endif 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-*label shop
-*temp buy_price_s 400
-*temp sales_price_s 0
-*temp sales_price_s2 0
-*temp sales_price_hp 0
-*temp buy_price_hp 100
-*temp buy_hp 0
-Hello and welcome to General Durald's shop! 
-*label top
-*set sales_price_s round((buy_price_s /2) +sword_dura)
-What can I help you with today?
+You have come to the end of the game...
 *line_break
-Money: $${money}
-*choice
-   *hide_reuse #Good morning sir, that's a very nice smile you got there!
-      *set buy_price_s -200
-      *set buy_price_hp -50
-      Listen you, I'll give you a discount if you promise to never say something so creepy ever again.
-      *page_break
-      *goto top
-   *if (sword = false)
-      *selectable_if (money >= buy_price_s) #I'd like to buy the new sword! [i]($${buy_price_s})[/i]
-         *set empty_inventory false
-         *set sword true
-         *set money -buy_price_s
-         *if (money < 0)
-            *set money 0
-         Thank you kindly, here's your new sword!
-         *page_break
-         *goto top
-   *if (sword)
-      #I'd like to sell my $!{sword_name}. [i]($${sales_price_s})[/i]
-         *set sword false
-         *if not ((cape) or (health_potion))
-            *set empty_inventory true
-         *set money +sales_price_s
-         Thank you kindly, I'll be taking your $!{sword_name} then.
-         *page_break
-         *goto top
-   *if (sword)
-      #(Bang the Chainsaw-Sword on the counter)
-         *set sword_dura %-10
-         Hey what are you doing, you bozo?! Stop that!
-         *page_break
-         *goto top
-   #I'd like to buy some Health Potions. [i]($${buy_price_hp} x1)[/i]
-      How many would you like?
-      *input_number buy_hp 0 99
-      *set sales_price_hp (100 * buy_hp)
-      So you would like to buy ${buy_hp} Health Potions? That'll be $${sales_price_hp} then.
-      *choice
-         *selectable_if (money >= sales_price_hp) #Yep. Here you go.
-            *set money -sales_price_hp
-            *if (money < 0)
-               *set money 0
-            *set empty_inventory false
-            *set health_potion true
-            *set hp_number buy_hp
-            A pleasure doing business with you!
-            *page_break
-            *goto top
-#I can't afford that.
-            That's too bad, see anything else you like?
-            *page_break
-            *goto top
-   *hide_reuse *if (cape = false) #Are those Bat-Boy capes?
-      Yep, promotional item. We're giving them out free for the kids. Why, you want one? What color would you like?
-      *fake_choice
-#Black
-            *label always_black
-            *set color "black"
-#Black...
-            *set color "black"
-#Black!
-            *goto always_black
-#Pink!
-            *set color "pink"
-      *set material "polyester"
-      *set cape true
-      *set empty_inventory false
-      Here ya go... 
-      *page_break
-      *goto top
-   *if (hp_number > 0) #(Drink a Health Potion)
-      *set hp_number -1
-      *if (hp_number = 0)
-         *set health_potion false
-      You chug down a cool refreshing health potion.
-      *page_break
-      *goto top
-   #I'm done shopping.
-      Okay, you come back again ya hear now? Have a nice day!
-      *page_break
-     
+For now...
+*line_break
+*line_break
+*link /death SAVE YOUR GAME HERE
+*line_break
+*line_break
+*fake_choice
+  #Restart
+   *goto startpoint
+*comment endif
 
 *label ending
-You have died a horrible gruesome death. 
-*line_break 
-Save your Wizard to collect achievments and begin another adventure.
+You have died a horrible gruesome death.
+*line_break
+*line_break
+*link /death SAVE YOUR GAME HERE
+*line_break
+*line_break
+*fake_choice
+  #Restart
+   *goto startpoint
+*comment endif

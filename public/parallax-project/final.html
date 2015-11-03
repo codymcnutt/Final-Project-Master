@@ -57,35 +57,35 @@
   <div class="becomeMenu"> 
   <p> What will you become? </p>
     <div>
-     <form action="/choicescript/web/mygame/index.html" method="GET" autocomplete="on" ng-submit="createCharacter()">
+    <!--  <form action="/choicescript/web/mygame/index.html" method="GET" autocomplete="on" ng-submit="createCharacter()">
       <input required class="begin" type="name" name="fname" style="top: 26%; left: 5%;" ng-model="newCharacter.name" placeholder="Name">
 
       <input required type="email" name="email"class="begin" style="top: 45%; left:5%; " ng-model="newCharacter.email" placeholder="e-mail">
-      <input style="left: 12%;" class="begin"type="submit">
+      <input style="left: 12%;" class="begin"type="submit"> -->
 
     <!-- current character is an object and saved characters array  -->
      
  
-   </form>
+   <!-- </form> -->
+   <p> Login Here</p>
   </div>
-<!--     <div>
-     <form action="/auth/signup" method="POST" autocomplete="on">
-      <input class="begin" type="name" name="username" style="top: 76%; left: 5%;"placeholder="Username">
-      <input  type="email" name="email"class="begin" style="top: 82%; left:5%; "placeholder="e-mail">
-      <input type="password" name="password" placeholder="Password"/>
-      <input style="left: 12%;" class="begin" type="submit"/>
+    <div>
+     <form action="/auth/login" method="POST" autocomplete="on">
+      <input class="begin" type="name" name="username" placeholder="Username">
+      <input class="begin"type="password" name="password" placeholder="Password"/>
+      <input class="begin" class="begin" type="submit"/>
     <!-- current character is an object and saved characters array  -->
     
     </form>
-  </div> -->
-</div>
-<div>
-<!--    <form action="/auth/signup" method="post">
-    <input type="text" name="username" placeholder="Username"/>
-    <input type="email" name="email" placeholder="Email"/>
-    <input type="password" name="password" placeholder="Password"/>
-    <input type="submit"/>
-  </form> -->
+
+
+    <p> New User Signup</p>
+   <form action="/auth/signup" method="post">
+    <input class="signup"type="text" name="username" placeholder="Username"/>
+    <input class="signup" type="email" name="email" placeholder="Email"/>
+    <input class="signup" type="password" name="password" placeholder="Password"/>
+    <input class="signup" type="submit"/>
+  </form>
 </div>
 
  

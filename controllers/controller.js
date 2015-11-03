@@ -1,5 +1,5 @@
 // Include our Model
-var Character = require('../models/models')
+var DB = require('../models/models')
 
 // Define our Route Handlers
 
@@ -8,7 +8,7 @@ var createCharacter = function(req, res){
 	// change createHero to createCharacter
 	// Data from a POST request lives in req.body
 
-	var newCharacter = new Character({
+	var newCharacter = new DB.Character({
 		name			: req.body.name,
 		email			: req.body.email,
 		

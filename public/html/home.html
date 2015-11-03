@@ -2,23 +2,38 @@
 <body ng-controller="characterController" style="margin:0px">
 
 <div>
-	<img style="position:absolute; width:100%; height:auto; z-index:-1;" src="parallax-project/images/page.jpg">
+	<img style="position: absolute;
+    width: 104%;
+    height: 160%;
+    top: -3%;
+    left: -3%;
+    z-index: -1;
+}" src="parallax-project/images/page.jpg">
 	<div style="position:fixed;
 display: -moz-box;
 left: 57%;
 top: 42%;
 width: 20%;
 ">
-	</div>
+
 	<a href="/choicescript/web/mygame/index.html"><button 
-	style="font-family: fantasy;
+	style="    font-family: fantasy;
     position: fixed;
-    left: 60%;
-    top: 39%;
+    left: 82%;
+    top: 17%;
     border-radius: 10px;
     background-color: #D2B48C;
     border-color: #000;
-    font-size: 3em;">Start New Adventure </button></a>
+    font-size: 2em;
+    box-shadow: -3px 4px 11px -3px gray;">Start New Adventure </button></a>
+</div>
+<div>
+    <p style="font-family: fantasy;
+    position: absolute;
+    font-size: 3em;
+    top: 18%;
+    left: 49%;
+    text-shadow: -2px 2px gray;"> Hail {{savedGames}} </p>
 </div>
 <div> {{deadGuys}}
 </div>

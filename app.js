@@ -55,7 +55,7 @@ app.get('/auth/logout', authenticationController.logout);
 // This route is designed to send back the logged in user (or undefined if they are NOT logged in)
 app.get('/api/me', function(req, res){
 	res.send(req.user)
-})
+});
 // ***** IMPORTANT ***** //
 // By including this middleware (defined in our config/passport.js module.exports),
 // We can prevent unauthorized access to any route handler defined after this call
@@ -64,6 +64,11 @@ app.get('/api/me', function(req, res){
 // TURN THIS ON TO USE AUTHENTICATION &&&&&&&&** ***************************************
 // app.use(passportConfig.ensureAuthenticated);
 
+app.get ('/death', function(req,res){
+	res.user.deadGuys.push(deadGuys)
+	req.user.save()
+	res.redirect('/home')
+});
 app.get('/home', function(req, res){
   res.sendFile("/html/home.html", {root : './public'})
 });

@@ -17,11 +17,12 @@ var performLogin = function(req, res, next, user){
   // so we are able to call req.login and pass the user we want
   // logged in.
   req.login(user, function(err){
+    console.log('LOGIN', err)
     // If there was an error, allow execution to move to the next middleware
     if(err) return next(err);
 
     // Otherwise, send the user to the homepage.
-    return res.redirect('/');
+    return res.redirect('/home');
   });
 };
 
@@ -56,7 +57,7 @@ var authenticationController = {
       // which will be read and used in the "login" handler above and then redirect
       // to that handler.
       if(!user) {
-		    return res.send({error: 'Error logging in. Please try again.'});
+		    return res.send('YOU SHALL NOT PASS - The way is shut and the dead keep it. Try a different password/username');
       }
       
       // If we make it this far, the user has correctly authenticated with passport
@@ -102,7 +103,7 @@ var authenticationController = {
         }
 		else{
 			// Generic Error
-		  return res.send({error : 'An error occured, please try again'})
+		  return res.send("lYou broke some shit try again")
 			
 		}
         
