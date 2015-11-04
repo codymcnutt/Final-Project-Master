@@ -3,10 +3,12 @@
 *author Cody McNutt
 *scene_list
   startup
-  
 
-
+*create cause ""
+*create sex ""
+*create inventorystuff ""
 *create name ""
+*create picture ""
 *create deadGuyLink ""
 *create Inventory false 
 *create gender 1
@@ -106,6 +108,7 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
 *fake_choice 
   *if (potion=true)
     #It’s a fine poison for my enemies
+     *set inventorystuff "Draught of the Living Dead"
      Good thinking! Clever planning like this will be useful, when you have dangerous enemies. 
      *line_break
      You gained a poison potion
@@ -113,6 +116,7 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
      *set inventory true
   *if (book=true)
     #It’s a scroll filled with power to make someone sleep
+     *set inventorystuff "Ancient Spell Book"
      Oh how sneaky of you, sweet dreams will fill some enemies dreams while you make moves against them.
      *line_break
      *image /choicescript/web/mygame/book.png
@@ -120,6 +124,7 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
      *set inventory true
   *if (amulet=true)
     #An amulet to ward off minor spells
+     *set inventorystuff "Amulet of Minor Protection"
      That’s thinking ahead, you never know when some wizard is going to try to hurt you with a minor spell. Those are the most dangerous kind.
      *line_break
      You gained an amulet
@@ -127,6 +132,7 @@ Excellent, now that the spell has been prepared and is ready to use. Um, what ex
      *set inventory true
   *if (summonstone=true)
     #A shiny orb to communicate with spirits on the astral plane
+     *set inventorystuff "Summoning Stone"
      Be careful, those spirits scare me, but it will come in handy being able to communicate with them. 
      *line_break
      You gained a summoning stone
@@ -153,6 +159,7 @@ You know, it's going to get annoying to keep calling you "Great and Powerful " W
  *set prestige %+30
  *set ugliness %+20
  *image /choicescript/web/mygame/gandalf.png
+ *set picture "/choicescript/web/mygame/gandalf.png"
  *set weakness %+20
 *comment endif
 *if (name="Harry Potter")
@@ -162,10 +169,12 @@ You know, it's going to get annoying to keep calling you "Great and Powerful " W
  *set ugliness %-10
  *set weakness %-20
  *image /choicescript/web/mygame/harrypotter.png
+ *set picture "/choicescript/web/mygame/harrypotter.png"
 *comment endif
 *if (name="Merlin") or (name="merlin")
  Merlin's beard, it's you!  
  *image /choicescript/web/mygame/merlin.png
+ *set picture "/choicescript/web/mygame/merlin.png"
  *set stupidity %-40
  *set prestige %+40
  *set ugliness %+20
@@ -247,7 +256,10 @@ As a child did you have an appetite for learning or did you spent most of your t
    *line_break 
    Weakness decreases 10%
 *page_break
-
+*if (gender=0)
+ *set sex "woman"
+*if (gender=1)
+  *set sex "male"
 *if (name="Merlin") or (name="merlin") 
    *goto fear
 *if (name="Gandalf") or (name="gandalf") 
@@ -256,6 +268,7 @@ As a child did you have an appetite for learning or did you spent most of your t
   *goto fear
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (amulet=true)))
       *image /choicescript/web/mygame/female1.png
+      *set picture "/choicescript/web/mygame/female1.png"
       This is what you look like. 
       *line_break
       You gained the Ice Scepter
@@ -264,6 +277,7 @@ As a child did you have an appetite for learning or did you spent most of your t
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (book=true)))
       You gained the Light Rod
       *image /choicescript/web/mygame/female10.png
+      *set picture "/choicescript/web/mygame/female10.png"
       This is what you look like. 
       *line_break
       You gained the Light Rod
@@ -271,42 +285,50 @@ As a child did you have an appetite for learning or did you spent most of your t
 *if (((gender=0) and (weakness<51)) and ((ugliness>50) and (potion=true)))
       This is what you look like.
       *image /choicescript/web/mygame/female8.png 
+      *set picture "/choicescript/web/mygame/female8.png"
       *page_break
 *if (((gender=0) and (prestige<40)) and ((ugliness>50) and (amulet=true)))
       This is what you look like.
       *image /choicescript/web/mygame/female4.png 
+      *set picture "/choicescript/web/mygame/female4.png"
       *page_break
-*if (((gender=0) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
+*if (((gender=0) and (stupidity<50)) and ((prestige>50) and (summonstone=true)))
       This is what you look like. 
       *image /choicescript/web/mygame/female3.png
+      *set picture "/choicescript/web/mygame/female3.png"
       *page_break
 *if (((gender=0) and (stupidity>50)) and ((prestige>50) and (book=true)))
       This is what you look like. 
       You've gained the Spirit Staff
       *set spiritStaff true
       *image /choicescript/web/mygame/female6.png
+      *set picture "/choicescript/web/mygame/female6.png"
       *page_break
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (inventory=false)))
       This is what you look like. 
       *line_break
       You have found the Sword of Truth
       *image /choicescript/web/mygame/female5.png
+      *set picture "/choicescript/web/mygame/female5.png"
       *page_break
 *if (((gender=0) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
       This is what you look like. 
       *image /choicescript/web/mygame/female7.png
+      *set picture "/choicescript/web/mygame/female7.png"
       *page_break
 *if (((gender=0) and (prestige>49)) and ((stupidity<50) and (potion=true)))
       This is what you look like. 
       You gained Treebeard's Leg Staff
       *set treestaff true
       *image /choicescript/web/mygame/female9.png
+      *set picture "/choicescript/web/mygame/female9.png"
       *page_break
 
 
 
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (amulet=true)))
       *image /choicescript/web/mygame/male1.png
+      *set picture "/choicescript/web/mygame/male1.png"
       This is what you look like. 
       *line_break
       You gained the Knarled Staff
@@ -317,20 +339,24 @@ As a child did you have an appetite for learning or did you spent most of your t
       *line_break
       You gained the Magus Wand 
       *image /choicescript/web/mygame/male6.png
+      *set picture "/choicescript/web/mygame/male6.png"
       *set magusWand true
       *page_break
 *if (((gender=1) and (weakness<51)) and ((ugliness>50) and (potion=true)))
       This is what you look like.
-      *image /choicescript/web/mygame/male10.png 
+      *image /choicescript/web/mygame/male10.png
+      *set picture "/choicescript/web/mygame/male10.png" 
       *page_break
 *if (((gender=1) and (prestige<40)) and ((ugliness>50) and (amulet=true)))
       This is what you look like.
-      *image /choicescript/web/mygame/male9.png 
+      *image /choicescript/web/mygame/male9.png
+      *set picture "/choicescript/web/mygame/male9.png" 
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((ugliness>50) and (summonstone=true)))
       This is what you look like. 
       *set inventory true
       *image /choicescript/web/mygame/male7.png
+      *set picture "/choicescript/web/mygame/male7.png"
       *page_break
 *if (((gender=1) and (stupidity<45)) and ((ugliness>55) and (book=true)))
       This is what you look like. You're mighty staff warns the dead of your powers
@@ -338,18 +364,22 @@ As a child did you have an appetite for learning or did you spent most of your t
       You gain the Skeleton Key Staff
       *set skeletonKey true
       *image /choicescript/web/mygame/male4.png
+      *set picture "/choicescript/web/mygame/male4.png"
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (inventory=false)))
       This is what you look like. For you are the wandering Wizard. You carry nothing with you.
       *image /choicescript/web/mygame/male5.png
+      *set picture "/choicescript/web/mygame/male5.png"
       *page_break
 *if (((gender=1) and (stupidity<50)) and ((weakness>50) and (summonstone=true)))
       This is what you look like. 
       *image /choicescript/web/mygame/male2.png
+      *set picture "/choicescript/web/mygame/male2.png"
       *page_break
 *if (((gender=1) and (prestige>49)) and ((stupidity<50) and (potion=true)))
       This is what you look like. 
       *image /choicescript/web/mygame/male3.png
+      *set picture "/choicescript/web/mygame/male3.png"
       *page_break
 
 
@@ -559,9 +589,11 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
 You have come to the end of the game...
 *line_break
 For now...
+*set cause "... Um nothing kiled me."
 *line_break
 *line_break
-*link /death SAVE YOUR GAME HERE
+*link deadGuyLink SAVE YOUR GAME HERE
+*script saveDeadGuy()
 *line_break
 *line_break
 *fake_choice
@@ -570,6 +602,7 @@ For now...
 *comment endif
 
 *label ending
+*set cause "Hellhound Attack"
 You have died a horrible gruesome death.
 *line_break
 *line_break

@@ -1,6 +1,8 @@
 var saveDeadGuy = function(){
 	console.log(stats)
-	window.location.href = stats.deadguylink
+	window.location.href = stats.deadguylink + '&money=' + stats.money + '&picture=' + stats.picture + '&sex=' + stats.sex + '&cause=' + stats.cause + '&inventorystuff=' + stats.inventorystuff
+	// for each new property, + '&prop=' + stats.prop
+	// ?prop1=dog&prop2=cat&prop3=bird
 }
 
 angular.module('characterApp', [])
@@ -11,8 +13,10 @@ angular.module('characterApp')
 			$http.get('/api/me')
 				.then(function(returnData){
 					if(!returnData.data){
+
 						// if not logged in, force back to home page
-						window.location.href="/"
+						// window.location.href="/"
+						
 					}
 					
 					$scope.user = returnData.data

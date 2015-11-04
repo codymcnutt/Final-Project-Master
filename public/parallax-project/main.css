@@ -2,7 +2,7 @@
     position: absolute;
     top: 8%;
     left: 32%;
-    height: 42%;
+    height: 34%;
     width: 30%;
     background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1)); /* For Safari 5.1 to 6.0 */
     background: linear-gradient(to right, rgba(12,17,39,0), rgba(12, 17,39,1));
@@ -72,4 +72,20 @@ input {
     top: 260px;
     margin: 0;
     left: 10%;
+}
+.userbutton{
+         color: black;
+    background: gold;
+    width: 52%;
+    font-size: 25px;
+    left: 19%;
+    top: -6.9vh;
+    line-height: 50px;
+    padding: 0 1.2em;
+    margin: 0;
+}
+.userbutton:hover{
+    background: black;
+    color:white;
+    opacity:.7;
 }

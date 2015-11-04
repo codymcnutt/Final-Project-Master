@@ -66,7 +66,15 @@ app.get('/api/me', function(req, res){
 
 app.get ('/death', function(req,res){
 	req.user.deadGuys = req.user.deadGuys || []
-	req.user.deadGuys.push({name : req.query.deadGuy })
+	req.user.deadGuys.push({
+		name : req.query.deadGuy,
+		picture : req.query.picture,
+		money : req.query.money,
+		sex : req.query.sex,
+		cause : req.query.cause,
+		inventorystuff : req.query.inventorystuff,
+		// newProp : req.query.prop
+	})
 	req.user.markModified('deadGuys')
 	req.user.save( function(err){
 		console.log('save err', err)

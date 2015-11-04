@@ -1,7 +1,9 @@
 <html ng-app="characterApp">
 <body ng-controller="characterController" style="margin:0px">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+<link rel="stylesheet" href="../parallax-project/main.css">
 <div>
+
 	<img style="position: absolute;
     width: 104%;
     height: 160%;
@@ -9,40 +11,59 @@
     left: -3%;
     z-index: -1;
 }" src="parallax-project/images/page.jpg">
-	<div style="position:fixed;
-display: -moz-box;
-left: 57%;
-top: 42%;
-width: 20%;
-">
-
-	<a href="/game"><button 
-	style="    font-family: fantasy;
-    position: fixed;
-    left: 82%;
-    top: 17%;
-    border-radius: 10px;
-    background-color: #D2B48C;
-    border-color: #000;
-    font-size: 2em;
-    box-shadow: -3px 4px 11px -3px gray;">Start New Adventure </button></a>
 </div>
-<div>
-    <p style="font-family: fantasy;
+        	<div style="position:fixed;
+        display: -moz-box;
+        left: 57%;
+        top: 42%;
+        width: 20%;
+        ">
+
+        	<a href="/game"><button 
+        	style="    font-family: fantasy;
+            position: fixed;
+            left: 82%;
+            top: 17%;
+            border-radius: 10px;
+            background-color: #D2B48C;
+            border-color: #000;
+            font-size: 2em;
+            box-shadow: -3px 4px 11px -3px gray;">Start New Adventure </button></a>
+        </div>
+        <div>
+            <p style="font-family: fantasy;
+            position: absolute;
+            font-size: 3em;
+            top: 18%;
+            left: 49%;
+            text-shadow: -2px 2px gray;"> Hail  {{user.username}} </p>
+        </div>
+    <!-- this div is is the box for data -->
+    <div style=" overflow: scroll; text-wrapping:normal;
+    width: 100%;
+    height: 66%;
     position: absolute;
-    font-size: 3em;
-    top: 18%;
-    left: 49%;
-    text-shadow: -2px 2px gray;"> Hail {{user.username}} </p>
-</div>
-<div> {{user.deadGuys}}
-</div>
+    top: 50%;
+    left: 22%;">
+    <!-- this box is for the data itself -->
+        <div ng-repeat="deadGuy in user.deadGuys" style="position: relative;
+    left: -25%; top:3%;" >
+            <p style="font-family: fantasy;
+                position: relative;
+                top:5%;
+                left: 31%;
+                font-size: 1em;
+                text-shadow: -1px 1px gray;">
+         {{deadGuy.name}} died from a {{deadGuy.cause}} <BR> A {{deadGuy.sex}} named {{deadGuy.name}} possessed the <BR> {{deadGuy.inventorystuff}} and {{deadGuy.money}} gold</p>
+       
+            <div>
+            <img style=" top: -12vh;
+    left: 50%; height: 140px; position:relative; float:initial;
+  "src= "{{deadGuy.picture}}" alt="Nobody knows what this {{deadGuy.sex}} looks like"> 
+        </div>
+    </div>
 
-<!-- for Eduard -->
-<!-- <div>
-<img src="scale.png">
-<p> CLASS </p>> <p>Composer </p>
-</div> -->
+
 <script src="/JS/main.js"></script>
 </body>
 </html>
