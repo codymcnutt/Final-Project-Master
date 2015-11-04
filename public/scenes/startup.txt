@@ -589,7 +589,7 @@ The young lad is obviously frightened and out of breath. Calmly you consider you
 You have come to the end of the game...
 *line_break
 For now...
-*set cause "... Um nothing kiled me."
+*set cause "... Um nothing killed me."
 *line_break
 *line_break
 *link deadGuyLink SAVE YOUR GAME HERE
