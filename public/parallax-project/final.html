@@ -55,7 +55,7 @@
   var parallax = new Parallax(scene);
   </script>
 
-  <div ng-hide="!newUser"class="becomeMenu"> 
+  <div ng-hide="!newUser"class="becomeMenu fonts"> 
   <p> What will you become? </p>
     <div>
     <!--  <form action="/choicescript/web/mygame/index.html" method="GET" autocomplete="on" ng-submit="createCharacter()">
@@ -67,7 +67,7 @@
     <!-- current character is an object and saved characters array  -->
    <!-- </form> -->
     </div>
-    <div ng-hide="!newUser">
+    <div ng-hide="!newUser" t>
      <form action="/auth/login" method="POST" autocomplete="on">
       <input class="begin" type="name" name="username" placeholder="Username">
       <input class="begin"type="password" name="password" placeholder="Password"/>
@@ -78,15 +78,16 @@
     </div>
   </div>
 
-<div ng-show="!newUser" class="becomeMenu2">
+<div ng-show="!newUser" class="becomeMenu2 fonts">
     <p> New User Signup</p>
    <form action="/auth/signup" method="post" >
     <input class="signup"type="text" name="username" placeholder="Username"/>
     <input class="signup" type="email" name="email" placeholder="Email"/>
     <input class="signup" type="password" name="password" placeholder="Password"/>
     <input style=" width: 40%;" class="signup" type="submit"/>
+    <button ng-click="newUser=true" class="begin userbutton" value="New User">Cancel</button>
   </form>
-  <button ng-click="newUser=true" class="begin userbutton" value="New User">Cancel</button>
+ 
 </div>
 
  

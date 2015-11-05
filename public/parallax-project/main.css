@@ -30,15 +30,15 @@
     text-align: center;
     position:relative;
     margin-bottom: 10px;
-	border: none;	
-	font-family: fantasy;
-	border-radius: 20px;
-	text-align: center;	
-	background-color: ghostwhite;
-	opacity: .5;	
-	color: black;	
-	height:45px;
-	top:62%;
+  border: none; 
+  font-family: fantasy;
+  border-radius: 20px;
+  text-align: center; 
+  background-color: ghostwhite;
+  opacity: .5;  
+  color: black; 
+  height:45px;
+  top:62%;
     left:2%;
 }
 
@@ -76,10 +76,10 @@ input {
 .userbutton{
          color: black;
     background: gold;
-    width: 52%;
+    width: 48%;
     font-size: 25px;
     left: 19%;
-    top: -6.9vh;
+    top: -5.4vh;
     line-height: 50px;
     padding: 0 1.2em;
     margin: 0;
